@@ -21,9 +21,16 @@ def write_to_file(data):
 @app.route('/submit_form', methods=['POST', 'GET'])
 def submit_form():
     if request.method == 'POST':
-        data = request.form.to_dict()
-        write_to_file(data)
-        return redirect('thankyou.html')
+        try:
+            data = request.form.to_dict()
+            # making sure we receive data
+            if(data['email'] and data['subject'] and data['message']):
+                write_to_file(data)
+                return redirect('thankyou.html')
+            else:
+                return render_template("contact.html")
+        except:
+            return "No data sent to the server..."
     else:
         return "Something Went Wrong"
 
