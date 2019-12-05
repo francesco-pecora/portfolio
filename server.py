@@ -1,4 +1,4 @@
-from static.database_library import define_database, insert_query
+from functions.database_library import define_database, insert_query
 from flask import Flask, render_template, request, redirect
 app = Flask(__name__)
 
