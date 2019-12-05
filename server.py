@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect
 app = Flask(__name__)
-#from functions.database_library import define_database, insert_query
+from functions.database_library import define_database, insert_query
 
 @app.route('/')
 def home_route():
@@ -19,9 +19,9 @@ def write_to_file(data):
         database.write(f'\n\nEMAIL: {email},\nSUBJECT:  {subject},\nMESSAGE: {message}')
 
 # WAITING TO SOLVE PROBLEM WITH PYTHONANYWHERE TO IMPLEMENT MYSQL DATABASE
-#def write_to_database(data):
-#    db = define_database()
-#    insert_query(db, str(data['email']), str(data['subject']), str(data['message']))
+def write_to_database(data):
+    db = define_database()
+    insert_query(db, str(data['email']), str(data['subject']), str(data['message']))
 
 @app.route('/submit_form', methods=['POST', 'GET'])
 def submit_form():
@@ -30,7 +30,8 @@ def submit_form():
             data = request.form.to_dict()
             # making sure we receive data
             if(data['email'] and data['subject'] and data['message']):
-                write_to_file(data)
+                #write_to_file(data)
+                write_to_database(data)
                 return redirect('thankyou.html')
             else:
                 return render_template("contact.html")
