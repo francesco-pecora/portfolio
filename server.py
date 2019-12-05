@@ -21,7 +21,7 @@ def submit_form():
             data = request.form.to_dict()
             # making sure we receive data
             if(data['email'] and data['subject'] and data['message']):
-                write_to_database(data)
+                #write_to_database(data)
                 return redirect('thankyou.html')
             else:
                 return render_template("contact.html")
