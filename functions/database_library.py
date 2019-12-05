@@ -16,5 +16,4 @@ def insert_query(database, email, subj, content):
     cur.execute(query, (email, subj, content))
     database.commit()
     cur.close()
-    database.close()
     
