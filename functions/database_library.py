@@ -15,5 +15,6 @@ def insert_query(database, email, subj, content):
     query = "INSERT INTO user_inputs (email, subj, messg) VALUES (%s, %s, %s);"
     cur.execute(query, (email, subj, content))
     database.commit()
+    cur.close()
     database.close()
     
