@@ -6,7 +6,7 @@ def define_database():
         host="FPeco35.mysql.pythonanywhere-services.com",
         user="FPeco35",
         passwd="database",
-        database="FPeco35$inputs"
+        db="FPeco35$inputs"
     )
     return db
 
