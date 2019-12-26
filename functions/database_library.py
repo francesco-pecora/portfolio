@@ -1,8 +1,8 @@
-import mysql.connector
+from mysql.connector import MySQLConnection
 
 # function returning the cursor of the database
 def define_database():
-    db = mysql.connector.connect(
+    db = MySQLConnection(
         host="FPeco35.mysql.pythonanywhere-services.com",
         user="FPeco35",
         passwd="database",
