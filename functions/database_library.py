@@ -5,7 +5,7 @@ def define_database():
     db = mysql.connector.connect(
         host="FPeco35.mysql.pythonanywhere-services.com",
         user="FPeco35",
-        passwd="mysqlDatabase",
+        passwd="database",
         database="FPeco35$inputs"
     )
     return db
