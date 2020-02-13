@@ -19,9 +19,9 @@ def write_to_file(data):
         database.write(f'\n\nEMAIL: {email},\nSUBJECT:  {subject},\nMESSAGE: {message}')
 
 # WAITING FOR PROBLEM TO BE SOLVED WITH WEB HOSTER
-def write_to_database(data):
-    db = define_database()
-    insert_query(db, str(data['email']), str(data['subject']), str(data['message']))
+#def write_to_database(data):
+#    db = define_database()
+#    insert_query(db, str(data['email']), str(data['subject']), str(data['message']))
 
 @app.route('/submit_form', methods=['POST', 'GET'])
 def submit_form():
