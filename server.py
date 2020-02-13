@@ -31,7 +31,8 @@ def submit_form():
             # making sure we receive data
             if(data['email'] and data['subject'] and data['message']):
                 write_to_file(data)
-                write_to_database(data)
+                # database connection not working, waiting to solve problem with web hoster
+                #write_to_database(data)
                 return redirect('thankyou.html')
             else:
                 return render_template("contact.html")
